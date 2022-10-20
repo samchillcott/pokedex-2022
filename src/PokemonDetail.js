@@ -1,12 +1,13 @@
 import React from 'react'
 
-const PokemonDetail = ({p}) => {
-  return (
-    <div>Name: {p.name}</div>
-    <div>Image</div>
-    <div>Description: {p.</div>
-    <div>Other Characteristic</div>
-  )
+const PokemonDetail = ({ name, image, type }) => {
+    return (
+        <div>
+            <h3>{name}</h3>
+            <img src={image} alt={name} />
+            <p>Type: {type}</p>
+        </div>
+    )
 }
 
 export default PokemonDetail
