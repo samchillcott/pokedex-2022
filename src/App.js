@@ -8,12 +8,10 @@ function App() {
 
   useEffect(() => {
     axios.get('https://pokeapi.co/api/v2/pokemon')
-      .then(function (response) {
+      .then((response) => {
         setPokemon(response.data.results.map(p => p.name))
       })
-      .catch(function (error) {
-        console.log(error);
-      })
+      .catch((error) => console.log(error))
   }, [])
 
   return (
