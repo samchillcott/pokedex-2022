@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import './App.css';
+import PokemonList from './PokemonList';
 
 function App() {
+  const [pokemon, setPokemon] = useState(['Aggron', 'Aipom'])
   return (
     <div className="App">
-      pokedex
+      <PokemonList pokemon={pokemon} />
     </div>
   );
 }
