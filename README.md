@@ -5,6 +5,7 @@ Basic project connecting to an API and rendering Pokemon
 ## Improvements
 
 - Move fetch to separate custom hook useFetch
+- Add try catch on requests
 - Cancel request to prevent multiple request
 - Use component library
 - Use typescript
