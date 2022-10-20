@@ -4,24 +4,29 @@ import PokemonList from './PokemonList';
 import axios from 'axios'
 
 function App() {
-  const [pokemon, setPokemon] = useState([])
+  const [allPokemon, setAllPokemon] = useState([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
+  const getAllPokemon = async () => {
     setLoading(true)
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
-      .then((response) => {
-        setLoading(false)
-        setPokemon(response.data.results.map(p => p.name))
-      })
-      .catch((error) => console.log(error))
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
+    setLoading(false)
+    // console.log(response.data.results);
+    setAllPokemon(response.data.results)
+    // setAllPokemon(response.data.results.map(pokemon => pokemon.name))
+   }
+
+  useEffect(() => {
+    getAllPokemon()
   }, [])
 
   if (loading) return "Loading results.."
 
   return (
     <div className="App">
-      <PokemonList pokemon={pokemon} />
+      <h1>Pokedex</h1>
+      {/* {allPokemon} */}
+      <PokemonList allPokemon={ allPokemon } />
     </div>
   );
 }
