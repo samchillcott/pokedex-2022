@@ -1,10 +1,19 @@
 import React from 'react'
+import PokemonDetail from './PokemonDetail'
 
-const PokemonList = ({ pokemon }) => {
+const PokemonList = ({ allPokemon }) => {
+    console.log(allPokemon);
     return (
         <div>
-            { pokemon.map(p => (
-                <div>{ p }</div>
+            { allPokemon.map(pokemon => (
+                <div>
+                    <PokemonDetail
+                        key={ pokemon.name}
+                        name={ pokemon.name}
+                        // image={ pokemon.sprites[4] }
+                        // type={ pokemon.types[0].type.name }
+                    />
+                </div>
             )) }
         </div>
     )
