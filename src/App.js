@@ -11,9 +11,7 @@ function App() {
     setLoading(true)
     const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
     setLoading(false)
-    // console.log(response.data.results);
     setAllPokemon(response.data.results)
-    // setAllPokemon(response.data.results.map(pokemon => pokemon.name))
    }
 
   useEffect(() => {
@@ -25,7 +23,6 @@ function App() {
   return (
     <div className="App">
       <h1>Pokedex</h1>
-      {/* {allPokemon} */}
       <PokemonList allPokemon={ allPokemon } />
     </div>
   );
